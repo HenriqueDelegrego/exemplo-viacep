@@ -8,6 +8,11 @@ cepInput.addEventListener('blur', () => {
     let cep = cepInput.value;
     cep = removerLetras(cep);
 
+    if (cep.length !== 8) {
+        alert('CEP inválido. Deve conter 8 dígitos.');
+        limparCampos();
+        return false;
+    }
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
         .then(response => {
             return response.json();
@@ -23,4 +28,13 @@ cepInput.addEventListener('blur', () => {
 
 function removerLetras(cep) {
     return cep.replace(/\D/g, '');
+}
+
+
+function limparCampos() {
+    cepInput.value = '';
+    logradouroInput.value = '';
+    bairroInput.value = '';
+    cidadeInput.value = '';
+    ufInput.value = '';
 }

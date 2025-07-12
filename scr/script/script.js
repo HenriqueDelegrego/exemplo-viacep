@@ -14,9 +14,7 @@ cepInput.addEventListener('blur', () => {
         return false;
     }
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
-        .then(response => {
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             logradouroInput.value = data.logradouro;
             bairroInput.value = data.bairro;

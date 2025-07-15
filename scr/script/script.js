@@ -15,10 +15,17 @@ cepInput.addEventListener('input', () => {
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
         .then(response => response.json())
         .then(data => {
+            if (data.erro) {
+                throw new Error('CEP não encontrado');
+            }
             logradouroInput.value = data.logradouro;
             bairroInput.value = data.bairro;
             cidadeInput.value = data.localidade;
             ufInput.value = data.uf;
+        })
+        .catch(error => {
+            alert('Erro: ' + error.message);
+            limparCampos();
         });
 });
 

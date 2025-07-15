@@ -19,7 +19,7 @@ cepInput.addEventListener('input', () => {
     fetch(`https://viacep.com.br/ws/${cep}/json/`) // Retorna uma Promise
         .then(response => response.json()) // A Promise é resolvida com a resposta da API e convertida para JSON
         .then(data => {
-            // Se a API retornar erro (algo específico da ViaCEP), lança um erro
+            // Se a API retornar o atributo erro (algo específico da ViaCEP), lança um erro
             if (data.erro) {
                 throw new Error('CEP não encontrado');
             }

@@ -12,7 +12,7 @@ cepInput.addEventListener('input', () => {
 
     if (cep.length !== 8) {
         limparCampos();
-        return false;
+        return;
     }
 
     // Faz a requisição para a API ViaCEP usando o valor do CEP

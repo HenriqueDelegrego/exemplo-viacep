@@ -4,12 +4,11 @@ const bairroInput = document.getElementById('bairro');
 const cidadeInput = document.getElementById('cidade');
 const ufInput = document.getElementById('uf');
 
-cepInput.addEventListener('blur', () => {
+cepInput.addEventListener('input', () => {
     let cep = cepInput.value;
     cep = removerLetras(cep);
 
     if (cep.length !== 8) {
-        alert('CEP inválido. Deve conter 8 dígitos.');
         limparCampos();
         return false;
     }
@@ -30,7 +29,6 @@ function removerLetras(cep) {
 
 
 function limparCampos() {
-    cepInput.value = '';
     logradouroInput.value = '';
     bairroInput.value = '';
     cidadeInput.value = '';

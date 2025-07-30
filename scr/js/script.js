@@ -5,10 +5,14 @@ const bairroInput = document.getElementById('bairro');
 const cidadeInput = document.getElementById('cidade');
 const ufInput = document.getElementById('uf');
 
+// Event listener para permitir somente números no CEP
+cepInput.addEventListener('input', () => {
+    cepInput.value = cepInput.value.replace(/\D/g, ''); // Remove tudo que não for dígito
+});
+
 // Adiciona um event listener para o campo de CEP, disparando a cada alteração (input)
 cepInput.addEventListener('input', () => {
     let cep = cepInput.value;
-    cep = removerLetras(cep);
 
     if (cep.length !== 8) {
         limparCampos();
@@ -35,10 +39,6 @@ cepInput.addEventListener('input', () => {
             limparCampos();
         });
 });
-
-function removerLetras(cep) {
-    return cep.replace(/\D/g, '');
-}
 
 // Função para limpar os campos menos o CEP do formulário
 function limparCampos() {

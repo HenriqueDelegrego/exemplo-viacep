@@ -1,3 +1,5 @@
+// Função assíncrona que realiza uma requisição HTTP usando fetch.
+// Retorna uma Promise que resolve para um objeto com os dados do endereço obtidos da API
 async function obterEndereco(cep) {
 
     // Faz a requisição para a API ViaCEP usando o valor do CEP

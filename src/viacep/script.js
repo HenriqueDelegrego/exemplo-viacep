@@ -18,15 +18,18 @@ cepInput.addEventListener('input', async (e) => {
         return;
     }
 
+    await buscarEndereco(cep);
+
+});
+
+async function buscarEndereco(cep) {
     try {
         const endereco = await obterEndereco(cep);
         preencherCampos(endereco);
-    }
-    catch (error) {
+    } catch (error) {
         alert('Erro: ' + error.message);
     }
-
-});
+}
 
 function preencherCampos(endereco) {
     logradouroInput.value = endereco.logradouro;

@@ -20,10 +20,7 @@
   form div {
     display: flex;
     flex-direction: column;
-  }
-
-  label {
-    margin-bottom: 5px;
+    gap: 5px;
   }
 
   input {

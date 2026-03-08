@@ -9,7 +9,7 @@ const ufInput = document.getElementById('uf');
 cepInput.addEventListener('input', async (e) => {
     e.preventDefault();
 
-    cepInput.value = cepInput.value.replace(/\D/g, ''); // Remove tudo que não for dígito
+    cepInput.value = cepInput.value.replace(/\D/g, ''); // Remove tudo que não for números
 
     const cep = cepInput.value;
 
@@ -20,11 +20,7 @@ cepInput.addEventListener('input', async (e) => {
 
     try {
         const endereco = await obterEndereco(cep);
-
-        logradouroInput.value = endereco.logradouro;
-        bairroInput.value = endereco.bairro;
-        cidadeInput.value = endereco.localidade;
-        ufInput.value = endereco.uf;
+        preencherCampos(endereco);
     }
     catch (error) {
         alert('Erro: ' + error.message);
@@ -32,8 +28,13 @@ cepInput.addEventListener('input', async (e) => {
 
 });
 
+function preencherCampos(endereco) {
+    logradouroInput.value = endereco.logradouro;
+    bairroInput.value = endereco.bairro;
+    cidadeInput.value = endereco.localidade;
+    ufInput.value = endereco.uf;
+}
 
-// Função para limpar os campos menos o CEP do formulário
 function limparCampos() {
     logradouroInput.value = '';
     bairroInput.value = '';

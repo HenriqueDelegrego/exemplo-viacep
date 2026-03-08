@@ -5,13 +5,11 @@ const bairroInput = document.getElementById('bairro');
 const cidadeInput = document.getElementById('cidade');
 const ufInput = document.getElementById('uf');
 
-// Event listener para permitir somente números no CEP
-cepInput.addEventListener('input', () => {
-    cepInput.value = cepInput.value.replace(/\D/g, ''); // Remove tudo que não for dígito
-});
-
 // Adiciona um event listener para o campo de CEP, disparando a cada alteração (input)
 cepInput.addEventListener('input', () => {
+
+    cepInput.value = cepInput.value.replace(/\D/g, ''); // Remove tudo que não for dígito
+
     let cep = cepInput.value;
 
     if (cep.length !== 8) {

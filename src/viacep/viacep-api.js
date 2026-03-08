@@ -13,7 +13,7 @@ async function obterEndereco(cep) {
     // Converte o corpo da resposta para JSON e retorna um objeto JavaScript
     const data = await response.json();
 
-    // Se a API retornar o atributo erro (algo específico da ViaCEP), lança um erro
+    // Lança um erro caso a API retornar o atributo erro (algo específico da ViaCEP)
     if (data.erro) {
         throw new Error('CEP não encontrado');
     }

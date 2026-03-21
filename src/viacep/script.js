@@ -24,7 +24,7 @@ cepInput.addEventListener('input', (e) => {
 
 async function buscarEndereco(cep) {
     try {
-        const endereco = await obterEndereco(cep);
+        const endereco = await fetchEndereco(cep);
         preencherCampos(endereco);
     } catch (error) {
         alert('Erro: ' + error.message);

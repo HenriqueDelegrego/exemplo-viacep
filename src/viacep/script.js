@@ -6,7 +6,7 @@ const cidadeInput = document.getElementById('cidade');
 const ufInput = document.getElementById('uf');
 
 // Adiciona um event listener para o campo de CEP, disparando a cada alteração (input)
-cepInput.addEventListener('input', async (e) => {
+cepInput.addEventListener('input', (e) => {
     e.preventDefault();
 
     cepInput.value = cepInput.value.replace(/\D/g, ''); // Remove tudo que não for números

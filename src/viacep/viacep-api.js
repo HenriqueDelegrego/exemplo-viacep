@@ -3,6 +3,8 @@
 async function fetchEndereco(cep) {
 
     // Faz a requisição para a API ViaCEP usando o valor do CEP
+    // Retorna uma Promise assim que o fetch é executado
+    // Promise é resolvida com um objeto Response quando a requisição completa
     const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
 
     // Verifica se houve erro HTTP na requisição (ex: 404, 500)

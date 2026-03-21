@@ -18,7 +18,7 @@ cepInput.addEventListener('input', async (e) => {
         return;
     }
 
-    await buscarEndereco(cep);
+    buscarEndereco(cep);
 
 });
 
